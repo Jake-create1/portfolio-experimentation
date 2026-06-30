@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jakob Hansen — Design Leader</title>
+  <meta name="description" content="Design leader crafting products, systems, and teams. Selected work and case studies." />
+
+  <!-- ↓ favicon: a simple lime dot -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='9' fill='%23ccff33'/></svg>" />
+
+  <!-- ↓ Fonts: Fraunces (display serif) + Hanken Grotesk (UI/body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ░░░ NAV ░░░ -->
+  <header class="nav reveal" data-reveal="1">
+    <a class="nav__mark" href="#top">
+      <span class="nav__dot" aria-hidden="true"></span>
+      <!-- EDIT: your name / wordmark -->
+      Jakob&nbsp;Hansen
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav__cta">Get in touch</a>
+    </nav>
+  </header>
+
+  <!-- ░░░ HERO — single viewport: name + spline + cases above the fold ░░░ -->
+  <main>
+    <section class="hero" id="top">
+      <!-- Spline mount. Paste your scene URL into data-spline-url to go live.
+           Until then, an animated gradient-mesh fallback renders here. -->
+      <div class="hero__visual" data-spline-url="" aria-hidden="true">
+        <div class="hero__mesh"></div>
+        <p class="hero__hint">
+          <span>Spline-ready</span>
+          add <code>data-spline-url</code> in <code>index.html</code>
+        </p>
+      </div>
+
+      <!-- Name + title, overlaid -->
+      <div class="hero__intro">
+        <p class="hero__eyebrow reveal" data-reveal="2">
+          <span class="hero__pulse" aria-hidden="true"></span>
+          Design leader · Available for select work · 2026
+        </p>
+        <h1 class="hero__name reveal" data-reveal="3">
+          <span class="hero__line">Jakob</span>
+          <span class="hero__line"><em>Hansen</em></span>
+        </h1>
+        <p class="hero__role reveal" data-reveal="4">
+          I lead design teams and ship the products, systems, and zero-to-one bets in&nbsp;between &mdash;
+          from first sketch to scaled platform.
+        </p>
+      </div>
+
+      <!-- Case strip — visible above the fold, no scroll required -->
+      <aside class="hero__cases" aria-label="Selected cases">
+        <div class="hero__cases-head reveal" data-reveal="5">
+          <span>Selected work</span>
+          <a href="#work">All cases →</a>
+        </div>
+        <ul class="case-strip" id="caseStrip">
+          <!-- populated from CASES in main.js -->
+        </ul>
+      </aside>
+    </section>
+
+    <!-- ░░░ FULL WORK LIST (below the fold) ░░░ -->
+    <section class="work" id="work">
+      <header class="section-head">
+        <span class="section-head__no">01</span>
+        <h2>Selected Work</h2>
+      </header>
+      <ol class="work-list" id="workList"><!-- populated from CASES --></ol>
+    </section>
+
+    <!-- ░░░ ABOUT ░░░ -->
+    <section class="about" id="about">
+      <header class="section-head">
+        <span class="section-head__no">02</span>
+        <h2>About</h2>
+      </header>
+      <div class="about__grid">
+        <p class="about__lead">
+          I'm a design leader with a builder's bias. I've grown teams from one to many,
+          set the bar for craft, and stayed close enough to the pixels to ship.
+        </p>
+        <div class="about__meta">
+          <dl>
+            <dt>Now</dt><dd>Head of Design — placeholder</dd>
+            <dt>Focus</dt><dd>Product · Design systems · 0→1</dd>
+            <dt>Based</dt><dd>Somewhere good</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ░░░ CONTACT / FOOTER ░░░ -->
+  <footer class="contact" id="contact">
+    <p class="contact__no">03</p>
+    <a class="contact__email" href="mailto:hello@example.com">Let's build something →</a>
+    <div class="contact__row">
+      <span>© <span id="year"></span> Jakob Hansen</span>
+      <span class="contact__social">
+        <a href="#">LinkedIn</a><a href="#">Read.cv</a><a href="#">Email</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

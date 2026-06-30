@@ -1,41 +1,41 @@
-# Portfolio Experimentation
+# Portfolio — Jakob Hansen, Design Leader
 
-A workspace for exploring, prototyping, and tracking experiments — each one self-contained, versioned, and documented.
-
-## Why this repo
-
-A single home for small bets and prototypes. Every experiment lives in its own folder under `experiments/`, with enough notes that you (or anyone else) can understand the hypothesis, what was tried, and what was learned — even months later.
-
-## Structure
+A fast, dependency-free portfolio site. The hero is a single full-viewport composition: a **Spline animation**, your **name**, and a row of **case cards visible above the fold** — visitors see your work without scrolling.
 
 ```
-portfolio-experimentation/
-├── experiments/        # One folder per experiment
-│   └── _template/      # Copy this to start a new experiment
-├── docs/               # Cross-cutting notes, decisions, references
-└── README.md
+.
+├── index.html      # structure + content (name, copy, contact)
+├── styles.css      # the whole design system (CSS variables at the top)
+├── main.js         # CASES list, Spline injection, reveals
+└── assets/         # images / exports
 ```
 
-## Starting a new experiment
+No build step. Open `index.html` in a browser, or serve locally:
 
 ```bash
-cp -r experiments/_template experiments/$(date +%Y-%m-%d)-short-name
+python3 -m http.server 8000   # → http://localhost:8000
 ```
 
-Then fill in the experiment's `README.md` and commit early:
+## Make it yours — 3 edits
 
-```bash
-git add experiments/2026-06-30-short-name
-git commit -m "experiment: start short-name"
-```
+1. **Your name & copy** — in `index.html`, replace `Jakob Hansen`, the role line, About, and the contact email.
+2. **Your Spline scene** — in `index.html`, find `data-spline-url=""` on `.hero__visual` and paste your scene URL:
+   ```html
+   <div class="hero__visual" data-spline-url="https://prod.spline.design/XXXX/scene.splinecode">
+   ```
+   With a URL set, the live `<spline-viewer>` loads automatically and the placeholder gradient is removed. Leave it empty and a tasteful animated mesh stands in.
+3. **Your cases** — edit the `CASES` array at the top of `main.js`. The first three appear in the hero strip; all of them fill the “Selected Work” list.
 
-## Conventions
+## Design tokens
 
-- **One experiment per folder.** Keep them isolated so they can be reasoned about independently.
-- **Date-prefix folder names** (`YYYY-MM-DD-name`) so they sort chronologically.
-- **Commit the journey, not just the result** — small, frequent commits make the thinking visible.
-- **Capture the outcome.** Even a failed experiment is worth keeping if the learning is written down.
+Everything keys off CSS variables at the top of `styles.css` — change `--accent`, `--bg`, or the fonts in one place. Display type is **Fraunces**, UI/body is **Hanken Grotesk**.
+
+Respects `prefers-reduced-motion` and degrades gracefully without JS.
+
+## Deploy
+
+Hosted on **GitHub Pages** (Settings → Pages → Deploy from `main` / root). Any static host works — Netlify, Vercel, Cloudflare Pages — just point it at the repo root.
 
 ## License
 
-See [LICENSE](LICENSE).
+[MIT](LICENSE).
